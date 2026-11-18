@@ -9,6 +9,7 @@ import { useToast } from "./ui/use-toast";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
 import { z } from "zod";
+import { config } from "@/data/config";
 
 const formSchema = z.object({
   fullName: z.string().min(2, "Full name must be at least 2 characters"),
@@ -24,6 +25,7 @@ const ContactForm = () => {
   const [message, setMessage] = React.useState("");
   const [loading, setLoading] = React.useState(false);
   const [errors, setErrors] = React.useState<FieldErrors>({});
+  const [sendFailed, setSendFailed] = React.useState(false);
 
   const { toast } = useToast();
   const router = useRouter();
@@ -31,6 +33,7 @@ const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setErrors({});
+    setSendFailed(false);
 
     const result = formSchema.safeParse({ fullName, email, message });
     if (!result.success) {
@@ -68,10 +71,11 @@ const ContactForm = () => {
         router.push("/");
         clearTimeout(timer);
       }, 1000);
-    } catch (err) {
+    } catch {
+      setSendFailed(true);
       toast({
         title: "Error",
-        description: "Something went wrong! Please try again.",
+        description: `Couldn't send the message. Please email me at ${config.email}.`,
         className: cn(
           "top-0 w-full flex justify-center fixed md:max-w-7xl md:top-4 md:right-4"
         ),
@@ -136,6 +140,18 @@ const ContactForm = () => {
         )}
         <BottomGradient />
       </Button>
+      {sendFailed && (
+        <p role="alert" className="mt-4 text-sm text-muted-foreground">
+          The form isn&apos;t working right now. Email me directly at{" "}
+          <a
+            className="underline underline-offset-4 text-foreground"
+            href={`mailto:${config.email}?subject=${encodeURIComponent("Hello from your portfolio")}&body=${encodeURIComponent(message)}`}
+          >
+            {config.email}
+          </a>
+          .
+        </p>
+      )}
     </form>
   );
 };
