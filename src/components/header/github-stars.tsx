@@ -5,14 +5,9 @@ import { GitHubStarsButton } from "../ui/shadcn-io/github-stars-button";
 export default async function GitHubStars({ className }: { className?: string }) {
   if (!config.githubUsername || !config.githubRepo) return null;
 
-  let stars: number;
-  try {
-    stars = await getGithubStars();
-  } catch (err) {
-    // don't fail the render/build on a github outage or rate limit
-    console.error(err);
-    return null;
-  }
+  // null = repo missing, github outage or rate limit: just hide the button
+  const stars = await getGithubStars();
+  if (stars === null) return null;
 
   return (
     <GitHubStarsButton
