@@ -47,6 +47,8 @@ export async function POST(req: Request) {
     const { data: resendData, error: resendError } = await resend.emails.send({
       from: "Portfolio <onboarding@resend.dev>",
       to: [config.email],
+      // "Reply" in your mail app goes to the visitor (validated by zod above)
+      replyTo: zodData.email,
       subject: "Contact me from portfolio",
       react: EmailTemplate({
         fullName: zodData.fullName,
