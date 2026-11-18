@@ -222,9 +222,13 @@ export const EXPERIENCE: Experience[] = [
   {
     id: 2,
     periods: [{ start: "Jun 2023", end: "Oct 2026" }],
-    title: "Radio Frequency Engineer",
-    company: "AZAL Azerbaijan Airlines · Metrology Department · Baku",
-    description: ["Calibration of aviation radio-navigation equipment."],
+    title: "RF & Systems Engineer",
+    company: "AZAL Azerbaijan Airlines · Baku",
+    description: [
+      "Performed calibration, testing, and verification of aviation radio-navigation systems (ILS, VOR, DME, NDB, and radar) in accordance with ICAO and national standards.",
+      "Collected and processed equipment parameters and signal measurements using computer-based tools to evaluate system performance and accuracy.",
+      "Used Microsoft Excel to analyze measurement data, calculate signal parameters and measurement uncertainty, and evaluate compliance with technical requirements.",
+    ],
     skills: [],
   },
 ];
