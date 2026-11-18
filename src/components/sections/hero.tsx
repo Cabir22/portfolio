@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import React from "react";
 import { Button } from "../ui/button";
-import { File, Github, Linkedin } from "lucide-react";
+import { File } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -11,7 +11,7 @@ import {
 import { usePreloader } from "../preloader";
 import { BlurIn, BoxReveal } from "../reveal-animations";
 import ScrollDownIcon from "../scroll-down-icon";
-import { SiGithub, SiLinkedin, SiX } from "react-icons/si";
+import { SiGithub, SiHuggingface, SiLinkedin } from "react-icons/si";
 import { config } from "@/data/config";
 
 import SectionWrapper from "../ui/section-wrapper";
@@ -73,28 +73,24 @@ const HeroSection = () => {
                   <p
                     className={cn(
                       "md:self-start md:mt-4 font-medium text-md text-slate-500 dark:text-zinc-400",
-                      "cursor-default sm:text-xl md:text-xl whitespace-nowrap bg-clip-text "
+                      "cursor-default sm:text-xl md:text-xl bg-clip-text "
                     )}
                   >
-                    A Full Stack Web Developer
+                    {config.role}
                   </p>
                 </BlurIn>
               </div>
               <div className="mt-8 flex flex-col gap-3 w-fit">
-                <Link
-                  href={
-                    "https://drive.google.com/file/d/1MTSsUA8V7Po2AsNXT8kZ5sLOpzC8l7qm/view?usp=sharing"
-                  }
-                  target="_blank"
-                  className="flex-1"
-                >
-                  <BoxReveal delay={2} width="100%" >
-                    <Button className="flex items-center gap-2 w-full">
-                      <File size={24} />
-                      <p>Resume</p>
-                    </Button>
-                  </BoxReveal>
-                </Link>
+                {config.resume && (
+                  <Link href={config.resume} target="_blank" className="flex-1">
+                    <BoxReveal delay={2} width="100%">
+                      <Button className="flex items-center gap-2 w-full">
+                        <File size={24} />
+                        <p>Resume</p>
+                      </Button>
+                    </BoxReveal>
+                  </Link>
+                )}
                 <div className="md:self-start flex gap-3">
                   <Tooltip delayDuration={300}>
                     <TooltipTrigger asChild>
@@ -113,17 +109,10 @@ const HeroSection = () => {
                   </Tooltip>
                   <div className="flex items-center h-full gap-2">
                     <Link
-                      href={config.social.twitter}
-                      target="_blank"
-                    >
-                      <Button variant={"outline"}>
-                        <SiX size={24} />
-                      </Button>
-                    </Link>
-                    <Link
                       href={config.social.github}
                       target="_blank"
                       className="cursor-can-hover"
+                      aria-label="GitHub"
                     >
                       <Button variant={"outline"}>
                         <SiGithub size={24} />
@@ -133,9 +122,20 @@ const HeroSection = () => {
                       href={config.social.linkedin}
                       target="_blank"
                       className="cursor-can-hover"
+                      aria-label="LinkedIn"
                     >
                       <Button variant={"outline"}>
                         <SiLinkedin size={24} />
+                      </Button>
+                    </Link>
+                    <Link
+                      href={config.social.huggingface}
+                      target="_blank"
+                      className="cursor-can-hover"
+                      aria-label="Hugging Face"
+                    >
+                      <Button variant={"outline"}>
+                        <SiHuggingface size={24} />
                       </Button>
                     </Link>
                   </div>

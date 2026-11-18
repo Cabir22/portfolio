@@ -1,44 +1,50 @@
 const config = {
-  title: "Naresh Khatri | Full-Stack Developer",
+  title: "Cabir Abbasov | AI Engineer",
+  // shown under the name in the hero
+  role: "AI Engineer · LLMs · NLP · Computer Vision",
   description: {
-    long: "Explore the portfolio of Naresh, a full-stack developer and creative technologist specializing in interactive web experiences, 3D animations, and innovative projects. Discover my latest work, including Coding Ducks, The Booking Desk, Ghostchat, and more. Let's build something amazing together!",
+    long: "Cabir Abbasov is an AI Engineer based in Baku, Azerbaijan, working on multilingual PII detection and masking, LLM fine-tuning for domain-specific decision tasks, and document AI pipelines.",
     short:
-      "Discover the portfolio of Naresh, a full-stack developer creating interactive web experiences and innovative projects.",
+      "I build AI systems that solve practical problems, especially in multilingual and privacy-sensitive settings.",
   },
-  keywords: [
-    "Naresh",
-    "portfolio",
-    "full-stack developer",
-    "creative technologist",
-    "web development",
-    "3D animations",
-    "interactive websites",
-    "Coding Ducks",
-    "The Booking Desk",
-    "Ghostchat",
-    "web design",
-    "GSAP",
-    "React",
-    "Next.js",
-    "Framer Motion",
+  // About section, one string per paragraph
+  about: [
+    "I came to AI from radio-frequency engineering and information security. I spent years calibrating aviation radio-navigation equipment and earned a master's in telecom systems security. That background shapes how I work: measure carefully, treat data responsibly, and build things that hold up in real use.",
+    "Today I work on multilingual PII detection and masking (Azerbaijani, Turkish, Russian, English), LLM fine-tuning for domain-specific decision tasks, and document AI pipelines.",
   ],
-  author: "Naresh Khatri",
-  email: "naresh.khatri2345@gmail.com",
-  site: "https://nareshkhatri.dev",
+  location: "Baku, Azerbaijan",
+  languages: ["Azerbaijani", "English", "Russian"],
+  keywords: [
+    "AI Engineer",
+    "Machine Learning",
+    "LLM",
+    "NLP",
+    "Computer Vision",
+    "PII detection",
+    "RAG",
+    "PyTorch",
+    "Hugging Face",
+    "Azerbaijan",
+    "Baku",
+  ],
+  author: "Cabir Abbasov",
+  email: "cabir.abbasov22@gmail.com",
+  // TODO(cabir): Vercel URL after first deploy. Until then this uses the
+  // production domain Vercel exposes at build time, or localhost in dev.
+  site: process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000",
+  // TODO(cabir): CV link (PDF in /public or a Drive link). Empty = no Resume button.
+  resume: "",
 
-  // for github stars button
-  githubUsername: "naresh-khatri",
-  githubRepo: "3d-portfolio",
+  // for github stars button in the header
+  githubUsername: "Cabir22",
+  githubRepo: "portfolio",
 
-  get ogImg() {
-    return this.site + "/assets/seo/og-image.png";
-  },
   social: {
-    twitter: "https://x.com/nothotchaddi",
-    linkedin: "https://www.linkedin.com/in/naresh-khatri/",
-    instagram: "https://www.instagram.com/hotchaddi",
-    facebook: "https://www.facebook.com/HotChaddi/",
-    github: "https://github.com/Naresh-Khatri",
+    github: "https://github.com/Cabir22",
+    linkedin: "https://www.linkedin.com/in/cabir-abbasov/",
+    huggingface: "https://huggingface.co/Cab1r",
   },
 };
 export { config };
