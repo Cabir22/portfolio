@@ -1,8 +1,6 @@
 import { ImageResponse } from "next/og";
 import { config } from "@/data/config";
 
-// TODO(cabir): placeholder OG image. To use a real one, delete this file and
-// add src/app/opengraph-image.png (1200x630).
 export const alt = config.title;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";

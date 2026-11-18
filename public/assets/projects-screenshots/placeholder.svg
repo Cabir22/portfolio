@@ -1,4 +1,4 @@
-<!-- TODO(cabir): placeholder until real project screenshots exist -->
+<!-- card image for projects without screenshots -->
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
   <rect width="1200" height="800" fill="#1e293b"/>
   <text x="600" y="400" fill="#64748b" font-family="ui-monospace, monospace" font-size="40" text-anchor="middle" dominant-baseline="middle">Screenshot coming soon</text>

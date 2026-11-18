@@ -208,8 +208,8 @@ export type Experience = {
 export const EXPERIENCE: Experience[] = [
   {
     id: 1,
-    periods: [{ start: "Sep 2026", end: "Present" }],
-    title: "AI Engineer Intern",
+    periods: [{ start: "Jul 2026", end: "Present" }],
+    title: "Junior AI Engineer",
     company: "HAL-X Ecosystem",
     description: [
       "Developing a multilingual text PII detection & masking model trained on synthetic data (Azerbaijani, Turkish, Russian, English).",
@@ -221,7 +221,7 @@ export const EXPERIENCE: Experience[] = [
   },
   {
     id: 2,
-    periods: [{ start: "TODO(cabir): start date", end: "Oct 2026" }],
+    periods: [{ start: "Jun 2023", end: "Oct 2026" }],
     title: "Radio Frequency Engineer",
     company: "AZAL Azerbaijan Airlines · Metrology Department · Baku",
     description: ["Calibration of aviation radio-navigation equipment."],

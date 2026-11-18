@@ -1,3 +1,4 @@
+import SlideShow from "@/components/slide-show";
 import { Button } from "@/components/ui/button";
 import { TypographyH3, TypographyP } from "@/components/ui/typography";
 import { ArrowUpRight } from "lucide-react";
@@ -98,9 +99,10 @@ const PROJECT_SKILLS = {
   bytetrack: text("ByteTrack", "BT"),
 };
 
-// Card image for every project until real screenshots exist.
-// TODO(cabir): screenshot for each project (put files in public/assets/projects-screenshots/)
-const PLACEHOLDER = "/assets/projects-screenshots/placeholder.svg";
+// Screenshots live in public/assets/projects-screenshots/<project id>/.
+const BASE_PATH = "/assets/projects-screenshots";
+// Card image for projects without screenshots.
+const PLACEHOLDER = `${BASE_PATH}/placeholder.svg`;
 
 export type Project = {
   id: string;
@@ -176,8 +178,8 @@ const projects: Project[] = [
     id: "form-triage",
     category: "Document AI",
     title: "FormTriage",
-    src: PLACEHOLDER,
-    screenshots: [],
+    src: `${BASE_PATH}/form-triage/overview.png`,
+    screenshots: ["overview.png", "results.png"],
     live: "#",
     github: "https://github.com/Cabir22/form-triage",
     skills: {
@@ -206,6 +208,12 @@ const projects: Project[] = [
             probability for every allowed answer. Above the threshold the answer
             is acted on; below it, the form goes to a person.
           </p>
+          <SlideShow
+            images={[
+              `${BASE_PATH}/form-triage/overview.png`,
+              `${BASE_PATH}/form-triage/results.png`,
+            ]}
+          />
           <TypographyH3 className="my-4 mt-8">Highlights</TypographyH3>
           <ul className="font-mono mb-2 list-disc ml-5 space-y-1">
             <li>
@@ -230,8 +238,8 @@ const projects: Project[] = [
     id: "exam-cheating-detection",
     category: "Computer Vision",
     title: "Exam Cheating Detection",
-    src: PLACEHOLDER,
-    screenshots: [],
+    src: `${BASE_PATH}/exam-cheating-detection/hand_risk.jpg`,
+    screenshots: ["hand_risk.jpg", "phone.jpg", "hand_risk_2.jpg"],
     live: "#",
     github: "https://github.com/Cabir22/Cheating_detection_in_exam",
     skills: {
@@ -265,6 +273,13 @@ const projects: Project[] = [
             contact only counts when one of the pair is also looking sideways,
             so neighbours writing side by side are not flagged.
           </p>
+          <SlideShow
+            images={[
+              `${BASE_PATH}/exam-cheating-detection/hand_risk.jpg`,
+              `${BASE_PATH}/exam-cheating-detection/phone.jpg`,
+              `${BASE_PATH}/exam-cheating-detection/hand_risk_2.jpg`,
+            ]}
+          />
           <TypographyH3 className="my-4 mt-8">Status</TypographyH3>
           <p className="font-mono mb-2">
             Validation is qualitative so far: labelled clips are run through
