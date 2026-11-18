@@ -101,8 +101,6 @@ const PROJECT_SKILLS = {
 
 // Screenshots live in public/assets/projects-screenshots/<project id>/.
 const BASE_PATH = "/assets/projects-screenshots";
-// Card image for projects without screenshots.
-const PLACEHOLDER = `${BASE_PATH}/placeholder.svg`;
 
 export type Project = {
   id: string;
@@ -120,8 +118,8 @@ const projects: Project[] = [
     id: "pii-masking",
     category: "NLP · Privacy",
     title: "PII Masking",
-    src: PLACEHOLDER,
-    screenshots: [],
+    src: `${BASE_PATH}/pii-masking/cover.webp`,
+    screenshots: ["cover.webp"],
     live: "#",
     github: "https://github.com/Cabir22/pii-masking",
     skills: {
@@ -143,6 +141,7 @@ const projects: Project[] = [
             project&apos;s own generator, and covers 27 labels.
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
+          <SlideShow images={[`${BASE_PATH}/pii-masking/cover.webp`]} />
           <TypographyH3 className="my-4 mt-8">What it finds</TypographyH3>
           <p className="font-mono mb-2">
             Names, addresses, dates and ages, phone numbers and e-mails, cards
