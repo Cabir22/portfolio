@@ -2,7 +2,9 @@
 import { useDevToolsOpen } from "@/hooks/use-devtools-open";
 import React, { useEffect, useState } from "react";
 import NyanCat from "./nyan-cat";
-import { AnimatePresence } from "motion/react";
+import { config } from "@/data/config";
+
+const FIRST_NAME = config.author.split(" ")[0];
 
 const EasterEggs = () => {
   const { isDevToolsOpen } = useDevToolsOpen();
@@ -30,14 +32,14 @@ const EasterEggs = () => {
         "color: #FFD700; font-size: 16px; font-weight: bold; background-color: black; padding: 10px; border-radius: 10px;"
       );
 
-      ["naresh", "Naresh", "NARESH"].forEach((name) => {
+      [FIRST_NAME.toLowerCase(), FIRST_NAME, FIRST_NAME.toUpperCase()].forEach((name) => {
         // @ts-ignore
         if (Object.hasOwn(window, name)) return;
         Object.defineProperty(window, name, {
           get() {
             console.log(
               "%c✨ Abra Kadabra! ✨\n\n" +
-                "You just summoned the magic of Naresh! 🧙‍♂️\n" +
+                `You just summoned the magic of ${FIRST_NAME}! 🧙‍♂️\n` +
                 "What??? youre not impressed? Fine, but remember: With great power comes great responsibility! 💻⚡",
 
               "color: #FF4500; font-size: 18px; font-weight: bold; background-color: black; padding: 10px; border-radius: 10px; margin-top:10px"

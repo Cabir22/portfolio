@@ -7,8 +7,7 @@ const nextConfig = {
       {
         source: "/(.*)",
         headers: [
-          // SAMEORIGIN (not DENY) so the resume page can embed its own PDF;
-          // still blocks other sites from framing us (clickjacking protection).
+          // blocks other sites from framing us (clickjacking protection)
           { key: "X-Frame-Options", value: "SAMEORIGIN" },
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },

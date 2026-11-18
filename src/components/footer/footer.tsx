@@ -1,7 +1,4 @@
 import React, { Suspense } from "react";
-import Link from "next/link";
-import { footer } from "./config";
-import { Button } from "../ui/button";
 import SocialMediaButtons from "../social/social-media-icons";
 import { config } from "@/data/config";
 
@@ -21,21 +18,17 @@ function Footer() {
         {config.author}. All rights reserved.
       </p>
       <SocialMediaButtons />
-      <nav className="flex gap-4 sm:gap-6 z-10">
-        {footer.map((link, index) => {
-          const { title, href } = link;
-
-          return (
-            <Link
-              className="text-xs underline-offset-4 hover:underline"
-              href={href}
-              key={`l_${index}`}
-            >
-              <Button variant={"link"}>{title}</Button>
-            </Link>
-          );
-        })}
-      </nav>
+      <p className="z-10 text-xs text-gray-500 dark:text-gray-400">
+        Design based on{" "}
+        <a
+          href="https://github.com/Naresh-Khatri/3d-portfolio"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline underline-offset-4 hover:text-foreground"
+        >
+          3d-portfolio by Naresh Khatri
+        </a>
+      </p>
     </footer>
   );
 }
