@@ -29,11 +29,7 @@ const config = {
   ],
   author: "Cabir Abbasov",
   email: "cabir.abbasov22@gmail.com",
-  // TODO(cabir): Vercel URL after first deploy. Until then this uses the
-  // production domain Vercel exposes at build time, or localhost in dev.
-  site: process.env.VERCEL_PROJECT_PRODUCTION_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : "http://localhost:3000",
+  site: "https://cabir-abbasov.vercel.app",
   // TODO(cabir): CV link (PDF in /public or a Drive link). Empty = no Resume button.
   resume: "",
 
