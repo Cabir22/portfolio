@@ -30,8 +30,9 @@ const config = {
   author: "Cabir Abbasov",
   email: "cabir.abbasov22@gmail.com",
   site: "https://cabir-abbasov.vercel.app",
-  // TODO(cabir): CV link (PDF in /public or a Drive link). Empty = no Resume button.
-  resume: "",
+  // CV on Google Drive. Update the file via "Manage versions" so this link stays the same.
+  // Empty = no Resume button.
+  resume: "https://drive.google.com/file/d/1uUnopQw9-beUz_OG80LsHV_u9FCOg_XC/view",
 
   // for github stars button in the header
   githubUsername: "Cabir22",
